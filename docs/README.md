@@ -10,7 +10,7 @@
 Want to build fun, balanced monsters in D&D 5e? Is encounter design a huge timesink for you? Need some varied combat options that will get you running encounters in seconds? Then try **Giffyglyph's Monster Maker**: a fully-featured webapp to help you build new monsters and prepare combat encounters with ease!
 
 * [Open the App](https://giffyglyph.com/monstermaker/webapp)
-* [Read the Changelog](https://github.com/giffyglyph/giffyglyphs-monster-maker/blob/master/docs/CHANGELOG.md) 
+* [Read the Changelog](https://github.com/giffyglyph/webapp-5e-monster-maker/blob/master/docs/CHANGELOG.md) 
 
 ## Features
 

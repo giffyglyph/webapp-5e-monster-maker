@@ -1,0 +1,36 @@
+<div class="repeatable-item">
+	{{> BlueprintFormRepeatingMenu}}
+	<div class="form-group">
+		<label>Language</label>
+		<select class="form-control custom-toggle" data-name="name">
+			<option value="custom" {{selected name "custom"}}>Custom</option>
+			<option value="all" {{selectedDefault name "all"}}>All</option>
+			<option value="abyssal" {{selected name "abyssal"}}>Abyssal</option>
+			<option value="aquan" {{selected name "aquan"}}>Aquan</option>
+			<option value="auran" {{selected name "auran"}}>Auran</option>
+			<option value="celestial" {{selected name "celestial"}}>Celestial</option>
+			<option value="common" {{selected name "common"}}>Common</option>
+			<option value="deep speech" {{selected name "deep speech"}}>Deep Speech</option>
+			<option value="draconic" {{selected name "draconic"}}>Draconic</option>
+			<option value="druidic" {{selected name "druidic"}}>Druidic</option>
+			<option value="dwarvish" {{selected name "dwarvish"}}>Dwarvish</option>
+			<option value="elvish" {{selected name "elvish"}}>Elvish</option>
+			<option value="giant" {{selected name "giant"}}>Giant</option>
+			<option value="gnomish" {{selected name "gnomish"}}>Gnomish</option>
+			<option value="goblin" {{selected name "goblin"}}>Goblin</option>
+			<option value="gnoll" {{selected name "gnoll"}}>Gnoll</option>
+			<option value="halfling" {{selected name "halfling"}}>Halfling</option>
+			<option value="ignan" {{selected name "ignan"}}>Ignan</option>
+			<option value="infernal" {{selected name "infernal"}}>Infernal</option>
+			<option value="orc" {{selected name "orc"}}>Orc</option>
+			<option value="primordial" {{selected name "primordial"}}>Primordial</option>
+			<option value="sylvan" {{selected name "sylvan"}}>Sylvan</option>
+			<option value="terran" {{selected name "terran"}}>Terran</option>
+			<option value="undercommon" {{selected name "undercommon"}}>Undercommon</option>
+		</select>
+	</div>
+	<div class="form-group custom" {{{customToggle name}}}>
+		<label>Name</label>
+		<input type="text" class="form-control" data-name="custom" {{{setValue custom}}}>
+	</div>
+</div>

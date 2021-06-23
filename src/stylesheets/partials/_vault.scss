@@ -1,0 +1,379 @@
+// Styles for the vault.
+
+.vault {
+
+	> .card-header {
+		padding-right: 0.75rem;
+	}
+
+	> .card-body {
+		padding: 0;
+	}
+
+	> .card-footer {
+		padding-left: 0.75rem;
+		padding-right: 0.75rem;
+	}
+
+	#vault-import-file,
+	#vault-import-srd {
+		display: none;
+	}
+
+	.dataTables_wrapper {
+		display: flex;
+		flex-direction: column;
+
+		.top {
+			display: flex;
+			justify-content: space-between;
+			padding: $spacing-sm $spacing;
+			background: $card-grey-light;
+			border-radius: 0;
+			border-bottom: 0.25rem solid $theme-primary;
+
+			.dataTables_length {
+				min-width: 7rem;
+				margin-right: $spacing;
+			}
+
+			label {
+				margin: 0;
+				position: relative;
+				width: 100%;
+
+				input {
+					padding-right: 1.6rem;
+				}
+
+				input,
+				select {
+					border-radius: 1cm;
+					font-size: inherit;
+					line-height: inherit;
+					padding-top: 0;
+					padding-bottom: 0;
+					height: auto;
+					width: 100%;
+					box-sizing: border-box;
+					margin: 0;
+				}
+			}
+
+			.dataTables_filter {
+				flex-grow: 1;
+				margin-right: 0;
+				text-align: right;
+
+				label {
+					max-width: 16rem;
+				}
+			}
+
+			.dataTables_filter label::after {
+				font-family: "Font Awesome 5 Free";
+				content: "\f002";
+				-webkit-font-smoothing: antialiased;
+				display: inline-block;
+				font-style: normal;
+				font-variant: normal;
+				text-rendering: auto;
+				position: absolute;
+				right: $spacing;
+				font-weight: 900;
+				color: #666f7f;
+				line-height: inherit;
+			}
+		}
+
+		.content {
+			overflow: hidden;
+		}
+
+		table {
+			margin: 0 !important;
+			width: 100% !important;
+			table-layout: fixed;
+
+			tbody tr:hover {
+				background: #eef0f2;
+				cursor: pointer;
+			}
+
+			td,
+			th {
+				box-sizing: border-box;
+			}
+
+			td {
+				padding: 0;
+			}
+
+			th {
+				background: $card-grey-light;
+				padding-top: $spacing-sm;
+				padding-bottom: $spacing-sm;
+
+				&:not(:first-child) {
+					border-left: 1px solid #dee2e6;
+				}
+
+				&::before,
+				&::after {
+					bottom: 0.4em;
+					right: 0.5em;
+					font-family: "Font Awesome 5 Free";
+					color: #da3737;
+
+					@media screen and (max-width: 400px) {
+						bottom: 0.25em;
+					}
+				}
+
+				&::before {
+					content: "\f884";
+				}
+
+				&::after {
+					content: "\f160";
+				}
+			}
+
+			.sorting::after,
+			.sorting_asc::after,
+			.sorting_desc::before {
+				opacity: 0;
+			}
+
+			.sorting::before {
+				opacity: 0.1;
+				color: inherit;
+			}
+
+			.col-id {
+				width: 4rem;
+				text-align: center;
+			}
+
+			.col-ac {
+				width: 4rem;
+				text-align: center;
+			}
+
+			.col-hp {
+				width: 5rem;
+				text-align: center;
+			}
+
+			.col-level {
+				width: 4rem;
+				text-align: center;
+			}
+
+			.col-role {
+				width: 6rem;
+			}
+
+			.col-rank {
+				width: 5.75rem;
+			}
+
+			.col-cr {
+				width: 4rem;
+				text-align: center;
+			}
+
+			.col-description,
+			.col-role-rank,
+			.col-ac-hp {
+				overflow: hidden;
+				width: 0;
+			}
+
+			.dataTables_empty {
+				padding: 0.5rem 0.75rem;
+			}
+
+			@media screen and (max-width: $app-width-tablet) {
+
+				.col-ac,
+				.col-hp,
+				.col-role,
+				.col-rank {
+					overflow: hidden !important;
+					width: 0;
+					padding: 0 !important;
+					border-right: none !important;
+				}
+			}
+
+			.table-card {
+				display: flex;
+				flex-direction: row;
+
+				.col-id {
+					text-align: center;
+					flex-shrink: 0;
+					font-weight: bold;
+				}
+
+				.col-name {
+					white-space: normal;
+					flex-grow: 1;
+
+					.name {
+						margin: 0;
+						font-weight: bold;
+					}
+
+					.role {
+						font-size: 0.7em;
+						font-style: italic;
+						opacity: .75;
+						margin: 0.25em 0 0;
+
+						.fas {
+							opacity: .5;
+						}
+
+						&:not(.rank-solo) .players {
+							display: none;
+						}
+					}
+
+					.details,
+					.stats {
+						font-size: 0.7em;
+						font-style: italic;
+						opacity: .75;
+						margin: 0;
+					}
+				}
+
+				.col-hp::after {
+					font-family: "Font Awesome 5 Free";
+			    content: " \f004";
+					color: #da3737;
+				}
+
+				.col-id,
+				.col-name,
+				.col-ac,
+				.col-hp,
+				.col-level,
+				.col-role,
+				.col-rank,
+				.col-cr {
+					padding: 0.5rem 0.75rem;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					&:not(:last-child) {
+						border-right: 1px dotted $card-grey-light;
+					}
+				}
+
+				.col-description,
+				.col-role-rank,
+				.col-ac-hp {
+					overflow: hidden;
+					width: 0;
+				}
+
+				.col-ac,
+				.col-hp,
+				.col-level,
+				.col-role,
+				.col-rank,
+				.col-cr {
+					flex-shrink: 0;
+				}
+
+				.col-rank:not(.rank-solo) .players {
+					display: none;
+				}
+
+				&.method-manual {
+
+					.role {
+						display: none;
+					}
+				}
+
+				@media screen and (min-width: $app-width-tablet + 1) {
+
+					.role {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.bottom {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: $spacing-sm $spacing;
+			background: $card-grey-light;
+			border-radius: 0;
+			border-top: 0.25rem solid $theme-primary;
+
+			.dataTables_info {
+				padding: 0;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				margin-right: $spacing;
+				white-space: normal;
+			}
+
+			.pagination {
+				margin: 0;
+			}
+
+			@media screen and (max-width: $app-width-tablet) {
+				flex-direction: column;
+
+				.dataTables_info {
+					margin-bottom: 0.25rem;
+					margin-right: 0;
+				}
+			}
+		}
+
+		.page-link {
+			color: $theme-primary;
+			background-color: white;
+			border: 1px solid white;
+			border: none;
+			border-radius: 1cm;
+			min-width: 2.2rem;
+			line-height: 1.2;
+			text-align: center;
+			font-weight: bold;
+		}
+
+		.page-item {
+
+			&.active .page-link {
+				background-color: $theme-primary;
+				border-color: $theme-primary;
+				color: $white;
+			}
+
+			&.disabled .page-link {
+				color: rgba($black, 0.25);
+				background: $card-grey;
+				border: 1px solid $card-grey;
+			}
+
+			&:not(:first-child) .page-link {
+				margin-left: 2px;
+			}
+
+			&:first-child .page-link,
+			&:last-child .page-link {
+				border-radius: 100%;
+			}
+		}
+	}
+}

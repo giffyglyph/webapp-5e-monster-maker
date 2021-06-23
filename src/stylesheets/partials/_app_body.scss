@@ -1,0 +1,17 @@
+// Styles for the app body.
+
+.app {
+
+	.app-body {
+		background: $app-body-bg;
+		margin-top: 6.25rem;
+		display: flex;
+		flex-direction: column;
+
+		.app-container {
+			padding: 0.5rem 10px;
+			width: 100%;
+			flex-grow: 1;
+		}
+	}
+}

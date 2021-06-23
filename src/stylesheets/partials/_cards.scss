@@ -1,0 +1,56 @@
+// Styles for cards.
+
+.card {
+	border: 0;
+  background: none;
+
+	.card-header {
+		background: #dee2e6;
+		border: 0;
+		color: $app-header-bg;
+		font-size: larger;
+		font-weight: bold;
+		border-bottom: 4px solid #ccd1d6;
+    border-radius: 0.5rem 0.5rem 0 0;
+		font-size: 1.4rem;
+
+		@media screen and (max-width: 400px) {
+			font-size: 1.35rem;
+		}
+
+		.card-icon {
+			background: $theme-primary;
+			padding: $spacing-sm 0.75em $spacing-sm 0.325em;
+			border-radius: 0 1cm 1cm 0;
+			line-height: inherit;
+			margin: (-$spacing-sm) 0 (-$spacing-sm) (-$spacing-lg);
+			color: white;
+
+			&::before {
+				min-width: 1.75rem;
+				text-align: center;
+				display: block;
+			}
+		}
+
+		.divider {
+			color: $theme-primary;
+		}
+
+		.subtitle {
+			font-weight: normal;
+			font-size: 0.8em;
+			// color: #ccd1d6;
+		}
+	}
+
+  .card-body {
+    background: $white;
+  }
+
+	.card-footer {
+		background: $card-grey;
+		border: 0;
+    border-radius: 0 0 0.5rem 0.5rem;
+	}
+}

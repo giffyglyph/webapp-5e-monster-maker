@@ -1,0 +1,50 @@
+// Styles for the laboratory preview.
+
+.monster-preview {
+	background-color: #ccd1d6;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: $spacing-lg 10px;
+	background-image: linear-gradient(45deg, #ccd1d6 25%, #c6ccd1 25%, #c6ccd1 50%, #ccd1d6 50%, #ccd1d6 75%, #c6ccd1 75%, #c6ccd1 100%);
+	background-size: 10px 10px;
+
+	.btn-png {
+		margin-top: $spacing-lg;
+		box-shadow: 0px 5px 10px 0px #50576240;
+
+		.fas {
+			transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+
+		&:not(:hover) {
+			background: $white;
+			border-color: $white;
+			color: $app-body-bg;
+
+			.fas {
+				color: $white;
+			}
+		}
+	}
+
+	.btn-columns {
+		margin-top: $spacing-lg;
+		box-shadow: 0px 5px 10px 0px #50576240;
+
+		.fas {
+			transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+
+		&:not(:hover) {
+			background: $white;
+			border-color: $white;
+
+			.fas {
+				color: $theme-primary;
+				background: none;
+			}
+		}
+	}
+}

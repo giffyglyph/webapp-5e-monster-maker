@@ -1,0 +1,27 @@
+// Styles for the laboratory.
+
+.laboratory {
+
+	> .card-body {
+		padding: 0;
+		display: grid;
+		grid-template-columns: 380px 1fr;
+
+		@media screen and (max-width: 840px) {
+			grid-template-columns: 344px 1fr;
+		}
+
+		@media screen and (max-width: $app-width-tablet) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto;
+		}
+	}
+
+	#laboratory-import-file {
+		display: none;
+	}
+
+	.laboratory-blueprint {
+		background: $card-grey;
+	}
+}

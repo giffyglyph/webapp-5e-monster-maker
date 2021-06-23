@@ -1,0 +1,30 @@
+.vault.edit {
+
+	> .card-body {
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr 380px;
+
+		@media screen and (max-width: 840px) {
+			grid-template-columns: 1fr 344px;
+		}
+
+		@media screen and (max-width: $app-width-tablet) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto;
+		}
+	}
+
+	> .card-footer {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#monster-import-file {
+		display: none;
+	}
+
+	.monster-blueprint {
+		background: $card-grey;
+	}
+}

@@ -1,0 +1,29 @@
+<div class="repeatable-item">
+	{{> BlueprintFormRepeatingMenu}}
+	<div class="form-group">
+		<label>Condition</label>
+		<select class="form-control custom-toggle" data-name="type">
+			<option value="custom" {{selected type "custom"}}>Custom</option>
+			<option value="blinded" {{selectedDefault type "blinded"}}>Blinded</option>
+			<option value="charmed" {{selected type "charmed"}}>Charmed</option>
+			<option value="deafened" {{selected type "deafened"}}>Deafened</option>
+			<option value="exhaustion" {{selected type "exhaustion"}}>Exhaustion</option>
+			<option value="fatigued" {{selected type "fatigued"}}>Fatigued</option>
+			<option value="frightened" {{selected type "frightened"}}>Frightened</option>
+			<option value="grappled" {{selected type "grappled"}}>Grappled</option>
+			<option value="incapacitated" {{selected type "incapacitated"}}>Incapacitated</option>
+			<option value="invisible" {{selected type "invisible"}}>Invisible</option>
+			<option value="paralyzed" {{selected type "paralyzed"}}>Paralyzed</option>
+			<option value="petrified" {{selected type "petrified"}}>Petrified</option>
+			<option value="poisoned" {{selected type "poisoned"}}>Poisoned</option>
+			<option value="prone" {{selected type "prone"}}>Prone</option>
+			<option value="restrained" {{selected type "restrained"}}>Restrained</option>
+			<option value="stunned" {{selected type "stunned"}}>Stunned</option>
+			<option value="unconscious" {{selected type "unconscious"}}>Unconscious</option>
+		</select>
+	</div>
+	<div class="form-group custom" {{{customToggle type}}}>
+		<label>Name</label>
+		<input type="text" class="form-control" data-name="custom" {{{setValue custom}}}>
+	</div>
+</div>

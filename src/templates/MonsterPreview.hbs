@@ -1,0 +1,314 @@
+<div class="monster theme-{{monster.display.theme}} columns-{{monster.display.columns}} {{#if display.quickstart}}quickstart rank-{{monster.description.rank}}{{/if}}">
+	{{#if display.imageBanner}}
+		<div class="monster-image banner">
+			<img src="{{monster.display.image.url}}"/>
+		</div>
+	{{/if}}
+	<div class="monster-contents">
+		<div class="monster-contents-header"></div>
+		<div class="monster-contents-body">
+			{{#if display.imageInline}}
+				<div class="monster-image inline">
+					<img src="{{monster.display.image.url}}"/>
+				</div>
+			{{/if}}
+			{{#if display.header}}
+				<div class="monster-header">
+					<div>
+						{{#if display.headerTitle}}
+							<h4>{{monster.description.name}}</h4>
+						{{/if}}
+						{{#if display.headerDescription}}
+							<p class="monster-description">{{fmtCapitalise (fmtMonsterDescription monster.description.size monster.description.type monster.tags monster.description.alignment)}}</p>
+						{{/if}}
+					</div>
+					{{#if display.quickstart}}
+						<div class="monster-quickstart">
+							<p>Level {{monster.description.level}} {{fmtCapitalise monster.description.role}}<br/> {{fmtCapitalise monster.description.rank}} <span class="solo-only">vs {{monster.description.players}} </span>({{fmtLocaleString monster.challenge.xp}} XP)</p>
+						</div>
+					{{/if}}
+				</div>
+			{{/if}}
+			{{#if display.defences}}
+				<hr/>
+				<ul>
+					{{#if display.armorClass}}
+						<li class="monster-ac">
+							<p>
+								<span class="label">Armor Class</span>
+								<span>
+									{{#if monster.ac.value}}{{monster.ac.value}} {{/if}}
+									{{#if monster.ac.type}}({{monster.ac.type}}){{/if}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.hitPoints}}
+						<li class="monster-hp">
+							<p>
+								<span class="label">Hit Points</span>
+								<span>
+									{{#if monster.hp.average}}{{monster.hp.average}} {{/if}}
+									{{#if monster.hp.roll}}({{monster.hp.roll}}){{/if}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.speeds}}
+						<li class="monster-speed">
+							<p>
+								<span class="label">Speed</span>
+								<span>{{{fmtMonsterSpeeds monster.speeds}}}</span>
+							</p>
+						</li>
+					{{/if}}
+				</ul>
+			{{/if}}
+			<hr/>
+			<div class="monster-abilities">
+				<div class="monster-ability">
+					<span class="label">Str</span>
+					<span>{{monster.abilities.str.score}} <span class="modifier">({{{fmtModifier monster.abilities.str.modifier}}})</span></span>
+				</div>
+				<div class="monster-ability">
+					<span class="label">Dex</span>
+					<span>{{monster.abilities.dex.score}} <span class="modifier">({{{fmtModifier monster.abilities.dex.modifier}}})</span></span>
+				</div>
+				<div class="monster-ability">
+					<span class="label">Con</span>
+					<span>{{monster.abilities.con.score}} <span class="modifier">({{{fmtModifier monster.abilities.con.modifier}}})</span></span>
+				</div>
+				<div class="monster-ability">
+					<span class="label">Int</span>
+					<span>{{monster.abilities.int.score}} <span class="modifier">({{{fmtModifier monster.abilities.int.modifier}}})</span></span>
+				</div>
+				<div class="monster-ability">
+					<span class="label">Wis</span>
+					<span>{{monster.abilities.wis.score}} <span class="modifier">({{{fmtModifier monster.abilities.wis.modifier}}})</span></span>
+				</div>
+				<div class="monster-ability">
+					<span class="label">Cha</span>
+					<span>{{monster.abilities.cha.score}} <span class="modifier">({{{fmtModifier monster.abilities.cha.modifier}}})</span></span>
+				</div>
+			</div>
+			{{#if display.stats}}
+				<hr/>
+				<ul class="monster-stats">
+					{{#if display.savingThrows}}
+						<li class="monster-saves">
+							<p>
+								<span class="label">{{#if monster.attack.isActive}}Saves{{/if}}{{#unless monster.attack.isActive}}Saving Throws{{/unless}}</span>
+								<span>
+									{{#if display.quickstart}}
+										{{#if monster.attack.isActive}}
+											{{{fmtMonsterSavingThrowsQuickstartActive monster.savingThrows}}}
+										{{/if}}
+										{{#unless monster.attack.isActive}}
+											{{fmtMonsterSavingThrowsQuickstart monster.savingThrows}}
+										{{/unless}}
+									{{/if}}
+									{{#unless display.quickstart}}
+										{{fmtMonsterSavingThrows monster.savingThrows}}
+									{{/unless}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.skills}}
+						<li class="monster-skills">
+							<p>
+								<span class="label">Skills</span>
+								<span>
+									{{#each monster.skills}}
+										{{fmtCapitalise name}} {{fmtModifier modifier}}{{#unless @last}}, {{/unless}}
+									{{/each}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.vulnerabilities}}
+						<li class="monster-vulnerabilities">
+							<p>
+								<span class="label">Damage Vulnerabilities</span>
+								<span>
+									{{#each monster.vulnerabilities}}
+										{{this}}{{#unless @last}}, {{/unless}}
+									{{/each}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.resistances}}
+						<li class="monster-resistances">
+							<p>
+								<span class="label">Damage Resistances</span>
+								<span>
+									{{#each monster.resistances}}
+										{{this}}{{#unless @last}}, {{/unless}}
+									{{/each}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.immunities}}
+						<li class="monster-immunities">
+							<p>
+								<span class="label">Damage Immunities</span>
+								<span>
+									{{#each monster.immunities}}
+										{{this}}{{#unless @last}}, {{/unless}}
+									{{/each}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.conditions}}
+						<li class="monster-conditions">
+							<p>
+								<span class="label">Condition Immunities</span>
+								<span>
+									{{#each monster.conditions}}
+										{{this}}{{#unless @last}}, {{/unless}}
+									{{/each}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.senses}}
+						<li class="monster-senses">
+							<p>
+								<span class="label">Senses</span>
+								<span>{{fmtMonsterSenses monster.senses}}</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.languages}}
+						<li class="monster-languages">
+							<p>
+								<span class="label">Languages</span>
+								<span>
+									{{#each monster.languages}}
+										{{fmtCapitalise this}}{{#unless @last}}, {{/unless}}
+									{{/each}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+					{{#if display.challenge}}
+						<li class="monster-challenge">
+							<p>
+								<span class="label">Challenge</span>
+								<span>
+									{{{monster.challenge.rating}}} {{#unless display.quickstart}}({{fmtLocaleString monster.challenge.xp}} XP){{/unless}}
+								</span>
+							</p>
+						</li>
+					{{/if}}
+				</ul>
+			{{/if}}
+			{{#if display.quickstart}}
+				<hr/>
+				<ul class="quickstart-helpers">
+					<li>
+						<p>
+							<span class="label">Attacks</span>
+							<span>{{#if monster.attack.isActive}}DC {{monster.attack.bonus}} vs AC{{#if monster.attack.isActiveSmaller}} − 10{{/if}}{{/if}}{{#unless monster.attack.isActive}}{{fmtModifier monster.attack.bonus}} to hit{{/unless}}. <i>Hit:</i> {{monster.attack.damage}} damage</span>
+						</p>
+					</li>
+					<li>
+						<p>
+							<span class="label">Attack DCs</span>
+							<span>Primary DC {{monster.dc.primary}}, Secondary DC {{monster.dc.secondary}}</span>
+						</p>
+					</li>
+					{{#if monster.attack.isActive}}
+						<li>
+							<p>
+								<span class="label">Active Defence</span>
+								<span>{{#if monster.attack.isActiveSmaller}}<i>(Smaller Variant) </i>{{/if}}You don't roll to attack. Instead, your targets roll to defend.</span>
+							</p>
+						</li>
+					{{/if}}
+				</ul>
+			{{/if}}
+			<hr/>
+			{{#if display.traits}}
+				<h5 class="h5-traits">Traits</h5>
+				<div class="h5-border"></div>
+				{{#each monster.traits}}
+					<div class="monster-trait">
+						<p>{{#if name}}<span class="name">{{name}}.</span>{{/if}}{{#if detail}} <span class="detail">{{{detail}}}</span>{{/if}}</p>
+					</div>
+				{{/each}}
+			{{/if}}
+			{{#if display.actions}}
+				<h5>Actions</h5>
+				<div class="h5-border"></div>
+				{{#each monster.actions}}
+					<div class="monster-action">
+						<p>{{#if name}}<span class="name">{{name}}.</span>{{/if}}{{#if detail}} <span class="detail">{{{detail}}}</span>{{/if}}</p>
+					</div>
+				{{/each}}
+			{{/if}}
+			{{#if display.reactions}}
+				<h5>Reactions</h5>
+				<div class="h5-border"></div>
+				{{#each monster.reactions}}
+					<div class="monster-reaction">
+						<p>{{#if name}}<span class="name">{{name}}.</span>{{/if}}{{#if detail}} <span class="detail">{{{detail}}}</span>{{/if}}</p>
+					</div>
+				{{/each}}
+			{{/if}}
+			{{#if display.paragonActions}}
+				<h5>Paragon Actions</h5>
+				<div class="h5-border"></div>
+				<p class="paragon-actions">You can take {{monster.paragonActions}} paragon action(s), choosing to either move or perform one action. Only one paragon action can be used at a time and only at the end of another creature's turn. You regain spent paragon actions at the start of your turn.</p>
+			{{/if}}
+			{{#if display.legendaryActions}}
+				<h5>Legendary Actions</h5>
+				<div class="h5-border"></div>
+				{{#if display.legendaryActionsPerRound}}
+					<p class="legendary-per-round">You can take {{monster.legendaryActionsPerRound}} legendary action(s), choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. You regain spent legendary actions at the start of your turn.</p>
+				{{/if}}
+				{{#each monster.legendaryActions}}
+					<div class="monster-legendary-action">
+						<p>{{#if name}}<span class="name">{{name}}.</span>{{/if}}{{#if detail}} <span class="detail">{{{detail}}}</span>{{/if}}</p>
+					</div>
+				{{/each}}
+			{{/if}}
+			{{#if display.lairActions}}
+				<h5>Lair Actions</h5>
+				<div class="h5-border"></div>
+				{{#if display.lairActionsInitiative}}
+					<p class="lair-initiative">On initiative count {{monster.lairActionsInitiative}} (losing initiative ties), you may take a lair action to trigger one of the following effects. You can't use the same effect two rounds in a row.</p>
+				{{/if}}
+				{{#each monster.lairActions}}
+					<div class="monster-lair-action">
+						<p>{{#if name}}<span class="name">{{name}}.</span>{{/if}}{{#if detail}} <span class="detail">{{{detail}}}</span>{{/if}}</p>
+					</div>
+				{{/each}}
+			{{/if}}
+			{{#if display.notes}}
+				<h5 class="h5-notes">Notes</h5>
+				<div class="h5-border"></div>
+				<div class="monster-notes">
+					{{#each monster.notes}}
+						<p class="note">{{{this}}}</p>
+					{{/each}}
+				</div>
+			{{/if}}
+			<p class="monster-footer">Made with Giffyglyph's Monster Maker</p>
+		</div>
+		<div class="monster-contents-footer"></div>
+	</div>
+</div>
+<div>
+	{{#if display.downloadPng}}
+		<button type="button" class="btn btn-sm btn-primary btn-png">
+			<span class="fas fa-camera"></span> Download as PNG
+		</button>
+	{{/if}}
+	<button type="button" class="btn btn-sm btn-primary btn-columns icon-only icon-border">
+		<span class="fas fa-columns"></span>
+	</button>
+</div>

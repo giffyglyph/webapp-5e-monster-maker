@@ -1,0 +1,26 @@
+// Styles for the error PanelLaboratory
+
+.error {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.box {
+		color: #9ca3af;
+		border-radius: 1rem;
+		text-align: center;
+		padding: 1.25rem;
+		background: #565e6b;
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.fas {
+		font-size: 4rem;
+		margin-bottom: 1rem;
+	}
+}

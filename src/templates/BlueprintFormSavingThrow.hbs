@@ -1,0 +1,14 @@
+<div class="repeatable-item">
+	{{> BlueprintFormRepeatingMenu}}
+	<div class="form-group">
+		<label>Ability</label>
+		<select class="form-control" data-name="ability">
+			<option value="str" {{selectedDefault ability "str"}}>Strength</option>
+			<option value="dex" {{selected ability "dex"}}>Dexterity</option>
+			<option value="con" {{selected ability "con"}}>Constitution</option>
+			<option value="int" {{selected ability "int"}}>Intelligence</option>
+			<option value="wis" {{selected ability "wis"}}>Wisdom</option>
+			<option value="cha" {{selected ability "cha"}}>Charisma</option>
+		</select>
+	</div>
+</div>

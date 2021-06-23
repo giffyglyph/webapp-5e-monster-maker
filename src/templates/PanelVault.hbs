@@ -1,0 +1,151 @@
+<div class="card vault panel">
+	<div class="card-header">
+		<span class="card-icon fas fa-dragon"></span> Vault <span class="divider">»</span> <span class="subtitle">view your monsters</span>
+	</div>
+	<div class="card-body">
+		<table id="table-monsters" class="table nowrap"></table>
+	</div>
+	<div class="card-footer text-right">
+		<input type="file" accept=".json" id="vault-import-file"/>
+		<div class="dropdown dropdown-options dropup">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+				<span class="fas fa-cog"></span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right">
+				<button type="button" class="dropdown-item btn-reset" data-toggle="modal" data-target="#modal-empty">
+					<span class="fas fa-trash"></span>Empty the Vault
+				</button>
+				<div class="dropdown-divider"></div>
+				<button type="button" class="dropdown-item btn-import-srd">
+					<span class="fas fa-file-import"></span>Import SRD Monsters to Vault
+				</button>
+				<div class="dropdown-divider"></div>
+				<button type="button" class="dropdown-item btn-export-to-json">
+					<span class="fas fa-file-export"></span>Export Vault to .json
+				</button>
+				<button type="button" class="dropdown-item btn-import-from-json">
+					<span class="fas fa-file-import"></span>Import Monsters from .json
+				</button>
+			</div>
+		</div>
+		<a class="btn btn-primary" href="#/laboratory">
+			<span class="fas fa-plus"></span> Add a Monster
+		</a>
+	</div>
+	<div id="modal-empty" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-trash"></span> Empty the Vault
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Are you sure you want to empty the vault and delete all your monsters?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">
+						<span class="fas fa-times"></span> No
+					</button>
+					<button type="button" class="btn btn-primary btn-confirm" data-dismiss="modal">
+						<span class="fas fa-check"></span> Yes
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-deleted-monster" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-trash"></span> Deleted Monster #{{passthroughData.oldId}}
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>You deleted monster #{{passthroughData.oldId}} from the vault.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-imported-monsters" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-file-import"></span> Import Complete
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>You imported <span class="count"></span> monster(s) into the vault.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-import-monsters-failure" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-file-import"></span> No Monsters Found
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>That file doesn't contain any valid monster records.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-import-srd-monsters" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-file-import"></span> Import SRD Monsters
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Do you want to import 322 SRD 5e monsters to your vault?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">
+						<span class="fas fa-times"></span> No
+					</button>
+					<button type="button" class="btn btn-primary btn-confirm" data-dismiss="modal">
+						<span class="fas fa-check"></span> Yes
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

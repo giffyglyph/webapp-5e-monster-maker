@@ -1,0 +1,585 @@
+// Styles for a monster
+
+.monster {
+	font-size: 0.875rem;
+	position: relative;
+	width: 28.6em;
+	box-shadow: 0px 5px 10px 0px #50576240;
+	display: flex;
+	flex-direction: column;
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	.monster-contents {
+		width: 100%;
+
+		.monster-contents-body {
+			padding: 1.42em;
+			background: white;
+		}
+	}
+
+	&.quickstart {
+
+		&:not(.rank-solo) {
+
+			.solo-only {
+				display: none;
+			}
+		}
+
+		.monster-header {
+
+			.monster-quickstart {
+				font-size: 0.8em;
+				font-weight: bold;
+				text-align: right;
+				margin-left: 0.8em;
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	.monster-image {
+
+		&.inline {
+
+			+ * {
+				margin-top: 1.42em;
+			}
+		}
+
+		img {
+			width: 100%;
+			border-radius: 0.25em;
+		}
+
+		&.banner {
+			width: 100%;
+
+			img {
+				border-radius: 0;
+			}
+		}
+	}
+
+	.monster-core {
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		+ * {
+			margin-top: 0.57em;
+		}
+	}
+
+	.monster-header {
+		display: inline-flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		h4 {
+			font-weight: bold;
+			color: $monster-red;
+			margin: 0;
+			line-height: 1;
+			font-size: 2em;
+			font-family: "Alegreya Sans SC", sans-serif;
+			margin-top: -0.1em;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		.monster-description {
+			font-style: italic;
+			font-size: 0.8em;
+
+			span:first-of-type {
+				display: inline-block;
+
+				&::first-letter {
+					text-transform: uppercase;
+				}
+			}
+
+			span + span::before {
+				content: " ";
+			}
+
+			* + .alignment::before {
+				content: ", ";
+			}
+		}
+	}
+
+	.monster-ac,
+	.monster-hp,
+	.monster-speed,
+	.monster-saves,
+	.monster-skills,
+	.monster-languages,
+	.monster-senses,
+	.monster-immunities,
+	.monster-vulnerabilities,
+	.monster-resistances,
+	.monster-conditions,
+	.monster-challenge {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	h5 {
+		font-weight: bold;
+		color: $monster-red;
+		font-family: "Alegreya Sans SC", sans-serif;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 0;
+		font-size: 1.45em;
+		margin-top: 0.36em !important;
+
+		+ * {
+			margin-top: 0.52em;
+		}
+	}
+
+	hr {
+		margin: 0.285em 0 0;
+		width: 100%;
+		min-height: 1px;
+		height: 0.143em;
+		border: 0;
+		background: linear-gradient(to right, rgba($monster-red, 0.75), rgba($monster-red, 0));
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+
+		&:first-of-type,
+		&:last-of-type {
+			height: 0.2143em;
+			background: linear-gradient(to right, rgba($monster-red, 1), rgba($monster-red, 0));
+		}
+
+		+ * {
+			margin-top: 0.285em;
+		}
+
+		&:last-of-type + * {
+			margin-top: 0.57em;
+		}
+	}
+
+	.label {
+		font-weight: bold;
+	}
+
+	.monster-abilities {
+		display: inline-grid;
+		width: 100%;
+		grid-template-columns: repeat(6, 1fr);
+		text-align: center;
+		line-height: 1.4;
+
+		.label {
+			color: $monster-red;
+			display: block;
+			text-transform: uppercase;
+		}
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 0;
+
+		.label {
+			color: $monster-red;
+		}
+
+		li > p {
+			margin: 0;
+		}
+	}
+
+	p {
+		margin-bottom: 0;
+
+		+ * {
+			margin-top: 0.57em;
+		}
+	}
+
+	.monster-trait,
+	.monster-action,
+	.monster-reaction,
+	.monster-legendary-action,
+	.monster-lair-action {
+
+		+ * {
+			margin-top: 0.57em;
+		}
+
+		p + * {
+			margin-top: 0.57em;
+		}
+
+		.name {
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.lair-initiative,
+	.legendary-per-round,
+	.paragon-actions {
+		font-size: 0.8em;
+		font-style: italic;
+	}
+
+	.monster-notes {
+
+		+ * {
+			margin-top: 0.57em;
+		}
+	}
+
+	hr + .h5-border {
+		display: none;
+	}
+
+	.monster-footer {
+		font-style: italic;
+		opacity: 0.5;
+		font-size: 0.8em;
+	}
+
+	.line-break {
+		display: block;
+		height: 0.57em;
+	}
+
+	.h5-border {
+		min-height: 1px;
+		height: 0.0714em;
+		background: linear-gradient(to right, rgba(154, 21, 21, 0.75), rgba(154, 21, 21, 0));
+		display: block;
+		margin-top: 0;
+		margin-bottom: 0.52em;
+
+		&.notes {
+			margin-top: 0.52em;
+			height: 0.2143em;
+		}
+	}
+
+	&.columns-1 {
+
+		@media screen and (max-width: 459px) {
+			font-size: 0.75rem;
+		}
+	}
+
+	&.columns-2 {
+		width: 55em;
+		font-size: 0.85rem;
+
+		@media screen and (max-width: 1200px) {
+			font-size: 0.75rem;
+		}
+
+		@media screen and (max-width: 1095px) {
+			font-size: 0.6rem;
+		}
+
+		@media screen and (max-width: 980px) {
+			font-size: 0.5rem;
+		}
+
+		@media screen and (max-width: 880px) {
+			font-size: 0.45rem;
+		}
+
+		@media screen and (max-width: $app-width-tablet) {
+			font-size: 0.7rem;
+		}
+
+		@media screen and (max-width: 680px) {
+			font-size: 0.6rem;
+		}
+
+		@media screen and (max-width: 580px) {
+			font-size: 0.5rem;
+		}
+
+		@media screen and (max-width: 490px) {
+			font-size: 0.4rem;
+		}
+
+		@media screen and (max-width: 410px) {
+			font-size: 0.35rem;
+		}
+
+		@media screen and (max-width: 400px) {
+			font-size: 0.5rem;
+		}
+
+		@media screen and (max-width: 380px) {
+			font-size: 0.45rem;
+		}
+
+		@media screen and (max-width: 350px) {
+			font-size: 0.38rem;
+		}
+
+		.monster-contents-body {
+			column-count: 2;
+			column-gap: 1.42em;
+		}
+	}
+
+	.h5-traits {
+		display: none;
+
+		+ .h5-border {
+			display: none;
+
+			+ .monster-trait {
+				margin-top: 0.57em;
+			}
+		}
+	}
+
+	&.theme-5e {
+
+		.monster-contents-body {
+			background: url("https://i.imgur.com/wAhINL9.jpg");
+		}
+
+		.monster-contents-header,
+		.monster-contents-footer {
+			height: 0.4em;
+			min-height: 3px;
+			background: #bd9b4c;
+			border: 1px solid black;
+			border-left: 0;
+			border-right: 0;
+			width: 100%;
+			background-image: linear-gradient(45deg, #bd9b4c 25%, #b38720 25%, #b38720 50%, #bd9b4c 50%, #bd9b4c 75%, #b38720 75%, #b38720 100%);
+			background-size: 5px 5px;
+		}
+	}
+
+	&.theme-transparent {
+		box-shadow: none;
+
+		.monster-contents-body {
+			background: none;
+		}
+	}
+
+	&.theme-giffyglyph {
+		box-shadow: none;
+
+		.h5-traits {
+			display: block;
+		}
+
+		ul {
+			padding: 0 !important;
+			margin-left: 1em;
+			margin-right: 1em;
+			border-radius: 0.5em;
+			// overflow: hidden;
+			flex-direction: column;
+			width: calc(100% - 2em);
+			border: 1px dotted rgba(#58180d, 0.1);
+			overflow: hidden;
+
+			li {
+				display: flex;
+				width: 100%;
+
+				&:not(:last-child) {
+					border-bottom: 1px dotted rgba(#58180d, 0.1);
+				}
+			}
+
+			li p {
+				width: 100%;
+				display: inline-flex;
+
+				.label {
+					font-family: "Alegreya Sans SC", sans-serif;
+					margin-right: 0.5em;
+					text-align: right;
+					display: inline-block;
+					width: 10.75em;
+					flex-shrink: 0;
+					font-size: 0.8em;
+					line-height: 1.9;
+					background: rgba(#58180d, 0.05);
+					padding-right: 0.5em;
+
+					+ span {
+						display: inline-block;
+						width: 100%;
+						padding-right: 0.5em;
+					}
+				}
+			}
+		}
+
+		hr {
+			display: none;
+
+			+ * {
+				margin-top: 0.5em;
+			}
+
+			&:first-of-type + * {
+				margin-top: 1em;
+			}
+		}
+
+		.quickstart-helpers {
+			margin-top: 0.5em;
+		}
+
+		.monster-contents-body {
+			padding: 0;
+			// border: 2px solid #58180d;
+			border-radius: 1em;
+			overflow: hidden;
+			box-shadow: 0px 5px 10px 0px #50576240;
+
+			.monster-header {
+				background: #58180d;
+				color: $white;
+				padding: 0.75em 1em 0.5em;
+				// margin-left: -2px;
+				// margin-top: -2px;
+				// width: calc(100% + 4px);
+
+				> * {
+					z-index: 1;
+					position: relative;
+				}
+
+				h4 {
+					color: $white;
+				}
+			}
+
+			> * {
+				padding-left: 1em;
+				padding-right: 1em;
+			}
+		}
+
+		.monster-abilities {
+			column-gap: 0.25em;
+			margin-top: 0.5em;
+			margin-bottom: 0;
+		}
+
+		.monster-saves {
+			// border-top: 1px dotted rgba(#58180d, 0.1);
+		}
+
+		.monster-stats + hr + *:not(.quickstart-helpers) {
+			margin-top: 0.5em !important;
+		}
+
+		.h5-border {
+			display: none;
+		}
+
+		.quickstart-helpers li {
+			display: flex;
+		}
+
+		h5 {
+			content: "Traits";
+			background: rgba(88, 24, 13, 0.1);
+			display: block;
+			margin: 0 0.65em 0.3em;
+			font-weight: bold;
+			color: #9a1515;
+			font-family: "Alegreya Sans SC", sans-serif;
+			display: inline-block;
+			width: calc(100% - 1.3em);
+
+			> * {
+				font-size: 1.45em;
+			}
+			padding: 0 0.5em !important;
+			border-radius: 0.3em;
+			line-height: 1.5;
+		}
+
+		.monster-ability {
+			background: rgba(#58180d, 0.1);
+			padding: 0.4em 0;
+			border-radius: 0.5em;
+		}
+
+		.monster-footer {
+			padding-bottom: 1.4em;
+		}
+
+		.monster-image.banner {
+			background: $white;
+			// border: 2px solid #58180d;
+			border-radius: 0.5em 0.5em 0 0;
+			overflow: hidden;
+			border-bottom: 0;
+			z-index: 1;
+
+			+ .monster-contents .monster-contents-body {
+				border-top: 0;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+		}
+
+		&.columns-2 {
+
+			.monster-contents-body {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				column-gap: 0;
+			}
+
+			.monster-header {
+				border-radius: 0.5em;
+				margin-left: 1em;
+				width: calc(100% - 2em);
+			}
+
+			.monster-footer {
+				padding-bottom: 0;
+			}
+
+			hr {
+
+				&:first-of-type + * {
+					margin-top: 0.5em;
+				}
+			}
+		}
+	}
+}

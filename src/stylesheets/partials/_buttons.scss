@@ -1,0 +1,94 @@
+// Styles for buttons.
+
+.btn {
+	border-radius: 2rem;
+	padding: 0 $spacing 0 0;
+
+	.fas,
+	.fab {
+		background: $theme-primary;
+		padding: $spacing-sm;
+		line-height: inherit;
+		border-radius: 2rem;
+		margin: 0 $spacing-sm 0 0;
+
+		&:before {
+			min-width: 1.5rem;
+			display: block;
+			text-align: center;
+		}
+	}
+
+	&.icon-only {
+
+		.fas,
+		.fab {
+			margin-right: -$spacing;
+		}
+	}
+
+	&.btn-sm {
+		padding: 0 0.5rem 0 0;
+
+		.fas,
+		.fab {
+			padding: 0;
+			margin: 0 0.25rem 0 0;
+
+			&::before {
+				min-width: 1.3rem;
+			}
+		}
+
+		&.icon-only {
+			padding-right: 0;
+
+			.fas,
+			.fab {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.btn-primary {
+	color: $white;
+	background-color: $app-navigation-bg;
+	border-color: $app-navigation-bg;
+	font-weight: bold;
+
+	&.icon-only:not(.icon-border) {
+		border-color: $theme-primary;
+	}
+}
+
+.btn-secondary {
+	color: $white;
+	background-color: $app-body-bg;
+	border-color: $app-body-bg;
+	font-weight: bold;
+
+	&.icon-only:not(.icon-border) {
+		border-color: $theme-primary;
+	}
+}
+
+.btn-primary,
+.btn-secondary {
+	display: inline-flex;
+	align-items: center;
+	border-width: 2px;
+
+	&:hover,
+	&:not(:disabled):not(:disabled):active,
+	&.dropdown-toggle[aria-expanded="true"] {
+		background-color: $theme-primary;
+		border-color: $theme-primary;
+	}
+
+	&:not(:disabled):not(:disabled):focus,
+	&:not(:disabled):not(:disabled):active:focus,
+	&.dropdown-toggle[aria-expanded="true"] {
+		box-shadow: 0 0 0 0.2rem rgba($theme-primary, 0.5);
+	}
+}

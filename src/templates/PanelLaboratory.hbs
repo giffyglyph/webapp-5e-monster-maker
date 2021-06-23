@@ -1,0 +1,142 @@
+<div class="card panel laboratory">
+	<div class="card-header">
+		<span class="card-icon fas fa-flask"></span> Laboratory <span class="divider">»</span> <span class="subtitle">create a monster</span>
+	</div>
+	<div class="card-body">
+		<div class="blueprint-form"></div>
+		<div class="monster-preview"></div>
+	</div>
+	<div class="card-footer text-right">
+		<input type="file" accept=".json" id="laboratory-import-file"/>
+		<div class="dropdown dropdown-options dropup">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+				<span class="fas fa-cog"></span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right">
+				<button type="button" class="dropdown-item btn-reset" data-toggle="modal" data-target="#modal-laboratory-reset">
+					<span class="fas fa-sync-alt"></span>Reset
+				</button>
+				<button type="button" class="dropdown-item btn-clear" data-toggle="modal" data-target="#modal-laboratory-clear">
+					<span class="fas fa-trash"></span>Remove Traits & Actions
+				</button>
+				<div class="dropdown-divider"></div>
+				<button type="button" class="dropdown-item btn-export-to-ii">
+					<span class="fas fa-file-export"></span>Export as Improved Initiative .json
+				</button>
+				<button type="button" class="dropdown-item btn-export-to-ii-clipboard">
+					<span class="fas fa-clipboard"></span>Copy Improved Initiative to Clipboard
+				</button>
+				<div class="dropdown-divider"></div>
+				<button type="button" class="dropdown-item btn-export-to-foundry">
+					<span class="fas fa-file-export"></span>Export as Foundry .json
+				</button>
+				<div class="dropdown-divider"></div>
+				<button type="button" class="dropdown-item btn-show-gmbinder">
+					<span class="fas fa-book-open"></span>Show in GMBinder Format
+				</button>
+				<div class="dropdown-divider"></div>
+				<button type="button" class="dropdown-item btn-export-to-json">
+					<span class="fas fa-file-export"></span>Save to .json
+				</button>
+				<button type="button" class="dropdown-item btn-import-from-json">
+					<span class="fas fa-file-import"></span>Load from .json
+				</button>
+			</div>
+		</div>
+		<button class="btn btn-primary btn-save">
+			 <span class="fas fa-save"></span> Save
+		</button>
+	</div>
+	<div id="modal-laboratory-reset" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-sync-alt"></span> Reset the Laboratory
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Are you sure you want to reset the laboratory?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">
+						<span class="fas fa-times"></span> No
+					</button>
+					<button type="button" class="btn btn-primary btn-confirm" data-dismiss="modal">
+						<span class="fas fa-check"></span> Yes
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-import-blueprint-failure" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-file-import"></span> No Blueprint Found
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>That file doesn't contain a valid laboratory blueprint.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-gmbinder" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-book-open"></span> GMBinder
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-laboratory-clear" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-trash"></span> Clear Traits & Actions
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Are you sure you want to clear all traits and actions?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">
+						<span class="fas fa-times"></span> No
+					</button>
+					<button type="button" class="btn btn-primary btn-confirm" data-dismiss="modal">
+						<span class="fas fa-check"></span> Yes
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

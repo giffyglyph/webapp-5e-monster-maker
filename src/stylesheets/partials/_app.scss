@@ -1,0 +1,14 @@
+// Styles for the app & app container.
+
+.app {
+	display: grid;
+	min-height: 100vh;
+	min-width: $app-width-min;
+	grid-template-rows: 1fr auto;
+	grid-template-columns: 100%;
+
+	.app-container {
+		max-width: $app-width-desktop;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,18 @@
+<div class='table-card method-{{monster.method}}'>
+	<div class="col-id"><a href="#/vault/{{id}}">{{id}}</a></div>
+	<div class="col-name">
+		<p class="name">{{monster.description.name}}</p>
+		<p class="details">{{fmtCapitalise (fmtMonsterDescription monster.description.size monster.description.type monster.tags monster.description.alignment)}}</p>
+		<p class="stats">{{monster.ac.value}} AC, {{monster.hp.average}} HP</p>
+		<p class="role rank-{{monster.description.rank}}"><span class="fas fa-tags"></span> {{fmtCapitalise monster.description.role}} {{monster.description.rank}} <span class="players">vs {{monster.description.players}}</span></p>
+	</div>
+	<div class="col-description">{{fmtCapitalise (fmtMonsterDescription monster.description.size monster.description.type monster.tags monster.description.alignment)}}</div>
+	<div class="col-ac-hp">{{monster.ac.value}} AC, {{monster.hp.average}} HP</div>
+	<div class="col-role-rank rank-{{monster.description.rank}}">{{fmtCapitalise monster.description.role}} {{monster.description.rank}} <span class="players">vs {{monster.description.players}}</span></div>
+	<div class="col-level">{{{fmtVaultCell monster.description.level}}}</div>
+	<div class="col-role">{{{fmtVaultCell (fmtCapitalise monster.description.role)}}}</div>
+	<div class="col-rank rank-{{monster.description.rank}}">{{{fmtVaultCell (fmtCapitalise monster.description.rank)}}} <span class="players">vs {{monster.description.players}}</span></div>
+	<div class="col-cr">{{monster.challenge.rating}}</div>
+	<div class="col-ac">{{monster.ac.value}}</div>
+	<div class="col-hp">{{monster.hp.average}}</div>
+</div>

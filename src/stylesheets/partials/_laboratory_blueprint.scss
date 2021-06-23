@@ -1,0 +1,434 @@
+// Styles for the laboratory blueprint.
+
+.blueprint-form {
+	background: $card-grey;
+
+	.btn-help {
+		color: #b1b7bd;
+		box-shadow: none;
+		margin-right: -0.25em;
+
+		&:hover {
+			color: $theme-primary;
+		}
+
+		.fas {
+			background: none;
+		}
+	}
+
+	.card {
+		overflow: visible;
+	}
+
+	.card-body {
+		padding: 0;
+		overflow: visible;
+
+		.card-header {
+			border-bottom: 1px solid #ccd1d6;
+		}
+	}
+
+	form {
+		background: $white;
+	}
+
+	form[data-method="quickstart"] .manual-only {
+		display: none;
+	}
+
+	form[data-method="manual"] .quickstart-only {
+		display: none;
+	}
+
+	form:not([data-rank="solo"]) .solo-only {
+		display: none;
+	}
+
+	.form-group {
+		margin: 0;
+		display: flex;
+
+		&.hidden {
+			display: none;
+		}
+
+		&:not(:last-child) {
+			border-bottom: 1px solid rgb(222, 226, 230);
+		}
+
+		> label {
+			width: 7.5rem;
+			flex-shrink: 0;
+			margin: 0;
+			font-weight: bold;
+			padding: $spacing-sm $spacing;
+			box-sizing: border-box;
+			display: flex;
+			text-align: right;
+			justify-content: flex-end;
+			border-right: 1px solid rgb(222, 226, 230);
+			background: rgba(222, 226, 230, 0.5);
+			line-height: calc(2.375rem - 0.75rem);
+		}
+
+		input,
+		select {
+			border: 0;
+			background: none;
+		}
+
+		input::placeholder {
+			color: rgba($app-body-bg, 0.5);
+		}
+
+		select {
+			padding-left: 0.5rem;
+		}
+
+		textarea {
+			padding: .375rem .75rem;
+			border: 0;
+			width: 100%;
+			box-sizing: border-box;
+			resize: vertical;
+			color: #495057;
+			min-height: 2.375rem;
+			font-size: 0.8em;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		&.section-end {
+			border-bottom: 2px solid $card-grey;
+		}
+
+		.flex-input {
+			width: 100%;
+			display: flex;
+
+			span {
+				opacity: 0.5;
+				padding: 0 0.5em;
+				display: flex;
+				align-items: center;
+				color: #b2b7c9;
+			}
+		}
+	}
+
+	.form-radio-list {
+		width: 100%;
+		display: flex;
+		padding: .375rem .75rem;
+
+		.form-check-input:checked ~ * {
+			background: $theme-primary;
+			color: $white;
+			font-weight: bold;
+		}
+
+		.form-check-input {
+			display: none;
+		}
+
+		.form-check {
+			flex-grow: 1;
+			margin: 0;
+			flex-shrink: 0;
+			width: 50%;
+
+			&:first-child .form-check-label {
+				border-radius: 4px 0 0 4px;
+			}
+
+			&:last-child .form-check-label {
+				border-radius: 0 4px 4px 0;
+			}
+		}
+
+		.form-check-label {
+			flex-grow: 1;
+			text-align: center;
+			background: $card-grey;
+			text-transform: uppercase;
+			font-size: 0.75rem;
+			color: $app-body-bg;
+		}
+
+		.form-check-label:hover {
+			cursor: pointer;
+		}
+	}
+
+	.repeatable-section {
+
+		.card-footer {
+			background: #eef0f2;
+			padding-left: $spacing;
+			padding-right: $spacing;
+		}
+	}
+
+	.repeatable-item {
+		border-bottom: 2px solid $card-grey;
+		position: relative;
+
+		.dropdown-options {
+			position: absolute;
+			top: $spacing-sm;
+			right: $spacing;
+
+			.btn {
+				border-color: $theme-primary;
+			}
+		}
+
+		.dropdown-toggle {
+			opacity: .1;
+
+			&:disabled {
+				display: none;
+			}
+
+			&:hover,
+			&[aria-expanded="true"] {
+				opacity: 1;
+			}
+		}
+	}
+
+	.accordion .card {
+		border-radius: 0;
+
+		.card-header {
+			padding: 0;
+			border-radius: 0;
+			display: flex;
+			border-bottom: 1px solid #ccd1d6;
+			margin-bottom: 0;
+
+			button {
+				background: $card-grey;
+				display: block;
+				text-align: left;
+				font-weight: bold;
+				width: 100%;
+				color: #2d3138;
+				text-decoration: none;
+				padding: 0;
+				transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+				border-radius: 0;
+				border: 0;
+				display: flex;
+				align-items: center;
+				padding: 0.1875rem 0;
+
+				.title {
+					flex-grow: 1;
+					margin-left: $spacing-sm;
+				}
+
+				&:hover,
+				&[aria-expanded="true"] {
+					background: $theme-primary;
+					color: $white;
+
+					.badge {
+						background: $white;
+						color: $theme-primary;
+					}
+				}
+
+				.fa-chevron-right::before {
+					position: relative;
+					left: 1px;
+				}
+
+				&[aria-expanded="true"] {
+
+					.fa-chevron-right::before {
+						transform: rotate(90deg);
+					}
+				}
+			}
+
+			.badge {
+				background-color: #b1b7bd;
+				border-radius: 1cm;
+				padding: 0 $spacing-sm;
+				transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+				color: white;
+				float: right;
+				margin-right: $spacing;
+				line-height: 1.5;
+			}
+
+			.fas {
+				transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+				color: white;
+				border-radius: 1cm;
+				margin: 0 0 0 $spacing-sm;
+				width: 1.5rem;
+				height: 1.5rem;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				&::before {
+					transition: transform .15s ease-in-out;
+				}
+			}
+		}
+
+		.card-footer {
+			border-radius: 0;
+		}
+
+		.collapse.show {
+			border-bottom: 1px solid #ccd1d6;
+		}
+	}
+
+	> .card-footer {
+		padding-left: $spacing;
+		padding-right: $spacing;
+	}
+}
+
+#modal-blueprint-traits .modal-body {
+
+	&:not([filter='any']) .trait.any,
+	&:not([filter='controller']) .trait.controller,
+	&:not([filter='defender']) .trait.defender,
+	&:not([filter='lurker']) .trait.lurker,
+	&:not([filter='striker']) .trait.striker,
+	&:not([filter='supporter']) .trait.supporter,
+	&:not([filter='sniper']) .trait.sniper,
+	&:not([filter='scout']) .trait.scout {
+		display: none;
+	}
+
+	select {
+		margin-bottom: $spacing-lg;
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+
+		.title {
+			margin: 0;
+		}
+
+		.description {
+			font-size: small;
+			margin: 0;
+		}
+	}
+
+	.form-check:hover {
+		background: #eef0f2;
+		margin-left: -$spacing-lg;
+		margin-right: -$spacing-lg;
+		padding-left: $spacing-lg * 2;
+		padding-right: $spacing-lg;
+	}
+
+	.form-check-label {
+		cursor: pointer;
+		padding-top: $spacing-sm;
+		padding-bottom: $spacing-sm;
+		width: 100%;
+	}
+
+	.form-check-input {
+		top: $spacing-sm;
+
+		&:checked ~ label {
+			color: $theme-primary;
+		}
+	}
+}
+
+#modal-markdown {
+
+	.accordion-markdown-help {
+
+		table {
+			background: #dee2e659;
+			overflow: hidden;
+			border-radius: 0.5em;
+			border: none;
+
+			td {
+				border: none;
+			}
+		}
+
+		.card {
+
+			&:not(:first-child) {
+				margin-top: 1rem;
+			}
+		}
+
+		.collapse.show {
+			border-bottom: none;
+		}
+
+		.card-header {
+			border: none;
+			background: none;
+			margin-left: -0.25em;
+			margin-right: -1em;
+
+			button {
+				background: $theme-primary;
+				color: $white;
+				font-weight: bold;
+				padding-left: 0.1875rem;
+				padding-right: 0.5em;
+				border-radius: 1em 0 0 1em;
+
+				&::before {
+					content: "\f054";
+					transition: transform .15s ease-in-out;
+					font-family: "Font Awesome 5 Free";
+					-webkit-font-smoothing: antialiased;
+					font-style: normal;
+					font-variant: normal;
+					text-rendering: auto;
+					margin-right: 0.5em;
+					transform: rotate(90deg);
+					background: $theme-primary;
+					color: white;
+					width: 1.5em;
+					border-radius: 1em;
+					text-align: center;
+				}
+
+				&.collapsed::before {
+					transform: rotate(0deg);
+				}
+
+				&.collapsed:not(:hover) {
+					background: #dee2e6;
+					color: inherit;
+				}
+			}
+		}
+
+		.card-body {
+			padding: 1rem 0 0;
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,81 @@
+// Styles for the app header navigation bar.
+
+.app {
+
+	.app-header {
+
+		.app-header-navigation {
+			background: $app-navigation-bg;
+
+			.app-container {
+				padding: 0 10px;
+			}
+
+			.nav {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+
+				.nav-item {
+					text-align: center;
+					font-weight: bold;
+
+					.nav-link {
+						color: $app-body-bg;
+						padding: 0.5rem 0.5rem 0.25rem;
+						border-radius: 0;
+						border-bottom: 0.25rem solid $app-header-bg;
+
+						.badge {
+							background: rgba($app-body-bg, 0.5);
+						}
+
+						&:not(.active):hover {
+							border-bottom: 0.25rem solid rgba($theme-primary, 0.5);
+							color: rgba($white, 0.5);
+
+							.fas,
+							.fab {
+								color: rgba($theme-primary, 0.5);
+							}
+						}
+
+						@media screen and (max-width: $app-width-tablet) {
+
+							.nav-link-text,
+							.badge {
+								display: none;
+							}
+						}
+					}
+
+					.active {
+						background: none;
+						border-radius: 0;
+						border-bottom: 0.25rem solid $theme-primary;
+						color: white;
+
+						.badge {
+							background: $app-body-bg;
+						}
+
+						.fas,
+						.fab {
+							color: $theme-primary;
+						}
+					}
+
+					.fas,
+					.fab {
+						margin-right: $spacing-sm;
+					}
+
+					.badge {
+						border-radius: 1cm;
+						font-size: inherit;
+						padding: ($spacing-sm / 2) $spacing-sm;
+					}
+				}
+			}
+		}
+	}
+}

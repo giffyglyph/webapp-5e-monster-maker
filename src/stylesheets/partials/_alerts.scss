@@ -1,0 +1,10 @@
+// Styles for alerts.
+
+.alert > :last-child {
+	margin-bottom: 0;
+}
+
+.alert-default {
+	border: 4px solid $card-grey;
+	border-radius: 1em;
+}

@@ -1,0 +1,15 @@
+// Common colors
+
+$black:                 #000000; // Black
+$white:                 #FFFFFF; // White
+
+$app-header-bg:         #22252a; // Dark grey
+$app-navigation-bg:     lighten($app-header-bg, 5%);
+$app-body-bg:           lighten($app-header-bg, 30%);
+$app-footer-bg:         $app-header-bg;
+$theme-primary:         #da3737; // Red
+$theme-primary-dark:    darken($theme-primary, 10%);
+$patreon-bg:            #e85b46; // Orange
+$card-grey:             #dee2e6; // Light grey
+$card-grey-light:       #eef0f2; // Lighter grey
+$monster-red:           #9a1515; // Dark red

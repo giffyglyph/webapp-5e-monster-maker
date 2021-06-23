@@ -1,0 +1,77 @@
+// Styles for the app footer.
+
+.app {
+
+	.app-footer {
+		background: darken($app-body-bg, 7%);
+		text-align: center;
+
+		.app-container {
+			padding: $spacing-lg 10px;
+			display: grid;
+			grid-template-columns: 1fr 1fr 2fr;
+			text-align: left;
+
+			@media screen and (max-width: $app-width-tablet) {
+				grid-template-columns: 1fr;
+				grid-row-gap: 0.5rem;
+				text-align: center;
+
+				p {
+					text-align: center;
+				}
+			}
+		}
+
+		a {
+			color: inherit;
+			transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+			text-decoration: none;
+			display: inline-block;
+
+			&:hover {
+				color: $theme-primary;
+			}
+		}
+
+		p {
+			text-align: right;
+			margin: 0;
+			color: lighten($app-body-bg, 50%);
+			font-size: 0.9rem;
+
+			a:not(:first-of-type) {
+				margin-left: 0.75rem;
+			}
+
+			.fab {
+				font-size: 2rem;
+				color: lighten($app-body-bg, 20%);
+				transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+				&:hover {
+					color: $theme-primary;
+				}
+			}
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font-size: 0.9rem;
+			color: lighten($app-body-bg, 50%);
+		}
+
+		h5 {
+			color: lighten($app-body-bg, 20%);
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+
+		.links > :not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
+}

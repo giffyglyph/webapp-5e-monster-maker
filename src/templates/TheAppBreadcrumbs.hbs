@@ -1,0 +1,7 @@
+{{#unless hidden }}
+	<div class="breadcrumbs">
+		<div class="app-container">
+			<span class="fas fa-dungeon"></span> {{#each breadcrumbs}}<a href="#{{{url}}}">{{text}}</a>{{#unless @last}} <span class="divider">»</span> {{/unless}}{{/each}}
+		</div>
+	</div>
+{{/unless}}

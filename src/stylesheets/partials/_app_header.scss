@@ -1,0 +1,191 @@
+// Styles for the app header.
+
+.app {
+
+	.app-header {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+		box-shadow: 0 0.25rem 0.75rem 0 darken($app-body-bg, 10%);
+
+		@media screen and (min-width: $app-width-tablet + 1) {
+
+			.app-header-navbar {
+				display: none;
+			}
+		}
+
+		.app-header-heading {
+			background: $app-header-bg;
+
+			.app-container {
+				padding: 0.625rem 10px;
+				display: grid;
+				grid-template-columns: auto repeat(8, 2rem);
+				grid-column-gap: 0.25rem;
+				align-items: end;
+
+				@media screen and (max-width: $app-width-tablet) {
+					grid-template-columns: auto repeat(2, 2rem);
+
+					.btn:not(.btn-patreon):not(.btn-menu) {
+						display: none;
+					}
+				}
+
+				@media screen and (min-width: $app-width-tablet + 1) {
+
+					.btn-menu {
+						display: none;
+					}
+				}
+			}
+
+			h1 {
+				text-transform: uppercase;
+				font-weight: bold;
+				display: flex;
+				flex-direction: row;
+				line-height: 1;
+				margin: 0;
+
+				img {
+					height: 2.5rem;
+					width: 2.5rem;
+					border: 2px solid $app-body-bg;
+					padding: 2px;
+					box-sizing: border-box;
+					border-radius: 100%;
+					margin-right: $spacing-sm;
+				}
+
+				a {
+					display: flex;
+					flex-direction: column;
+
+					span:first-of-type {
+						font-size: 0.95rem;
+						color: $theme-primary;
+						letter-spacing: 1px;
+					}
+
+					span:last-of-type {
+						color: $white;
+						font-size: 1.9rem;
+						margin-bottom: -0.35rem;
+					}
+
+					&:hover {
+						text-decoration: none;
+
+						span:last-of-type {
+							text-decoration: underline;
+							text-decoration-color: $theme-primary;
+						}
+					}
+				}
+			}
+
+			.btn {
+				height: 2rem;
+				border-radius: 100%;
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1rem;
+				background-color: $app-body-bg;
+				border-color: $app-body-bg;
+				line-height: 1;
+				padding: 0;
+
+				.fas,
+				.fab {
+					background: none;
+					padding: 0;
+					margin: 0;
+				}
+
+				&:hover {
+					background: $theme-primary;
+					border-color: $theme-primary;
+				}
+
+				&.btn-patreon {
+					background-color: $patreon-bg;
+					border-color: $patreon-bg;
+
+					&:hover {
+						color: $patreon-bg;
+						background-color: $white;
+						border-color: $white;
+					}
+				}
+			}
+		}
+
+		.app-header-navbar {
+			background: $app-header-bg;
+
+			.navbar {
+				padding: 0;
+
+				.nav-item {
+					padding-left:  0.625rem;
+					padding-right:  0.625rem;
+
+					+ .nav-item {
+						border-top: 1px dotted darken($app-body-bg, 15%);
+					}
+
+					a {
+						color: white;
+						font-weight: bold;
+
+						&:hover {
+							color: $theme-primary;
+						}
+					}
+
+					button {
+						padding: 0;
+						color: white;
+						font-weight: bold;
+						display: block;
+						padding: 0.5rem 0;
+						background: none;
+						border: none;
+						box-shadow: none;
+						width: 100%;
+						text-align: left;
+
+						&:hover {
+							color: $theme-primary;
+							cursor: pointer;
+						}
+					}
+
+					.fab,
+					.fas {
+						width: 2.5rem;
+						text-align: center;
+						margin-right: $spacing-sm;
+					}
+
+					&:first-child {
+						border-top: 1px solid darken($app-body-bg, 15%);
+					}
+
+					&:last-child {
+						border-bottom: 1px solid darken($app-body-bg, 15%);
+					}
+
+					.nav-link-detail {
+						color: $app-body-bg;
+					}
+				}
+			}
+		}
+	}
+}

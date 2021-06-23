@@ -1,0 +1,49 @@
+<div class="repeatable-item">
+	{{> BlueprintFormRepeatingMenu}}
+	<div class="form-group">
+		<label>Skill</label>
+		<select class="form-control custom-toggle" data-name="name">
+			<option value="custom" {{selected name "custom"}}>Custom</option>
+			<option value="acrobatics" {{selectedDefault name "acrobatics"}}>Acrobatics</option>
+			<option value="animal handling" {{selected name "animal handling"}}>Animal Handling</option>
+			<option value="arcana" {{selected name "arcana"}}>Arcana</option>
+			<option value="athletics" {{selected name "athletics"}}>Athletics</option>
+			<option value="deception" {{selected name "deception"}}>Deception</option>
+			<option value="history" {{selected name "history"}}>History</option>
+			<option value="insight" {{selected name "insight"}}>Insight</option>
+			<option value="intimidation" {{selected name "intimidation"}}>Intimidation</option>
+			<option value="investigation" {{selected name "investigation"}}>Investigation</option>
+			<option value="medicine" {{selected name "medicine"}}>Medicine</option>
+			<option value="nature" {{selected name "nature"}}>Nature</option>
+			<option value="perception" {{selected name "perception"}}>Perception</option>
+			<option value="performance" {{selected name "performance"}}>Performance</option>
+			<option value="persuasion" {{selected name "persuasion"}}>Persuasion</option>
+			<option value="religion" {{selected name "religion"}}>Religion</option>
+			<option value="sleight of hand" {{selected name "sleight of hand"}}>Sleight of Hand</option>
+			<option value="stealth" {{selected name "stealth"}}>Stealth</option>
+			<option value="survival" {{selected name "survival"}}>Survival</option>
+		</select>
+	</div>
+	<div class="form-group custom" {{{customToggle name}}}>
+		<label>Name</label>
+		<input type="text" class="form-control" data-name="custom.name" {{{setValue custom.name}}}>
+	</div>
+	<div class="form-group custom" {{{customToggle name}}}>
+		<label>Ability</label>
+		<select class="form-control" data-name="custom.ability">
+			<option value="str" {{selectedDefault custom.ability "str"}}>Strength</option>
+			<option value="dex" {{selected custom.ability "dex"}}>Dexterity</option>
+			<option value="con" {{selected custom.ability "con"}}>Constitution</option>
+			<option value="int" {{selected custom.ability "int"}}>Intelligence</option>
+			<option value="wis" {{selected custom.ability "wis"}}>Wisdom</option>
+			<option value="cha" {{selected custom.ability "cha"}}>Charisma</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Proficiency</label>
+		<select class="form-control" data-name="proficiency">
+			<option value="proficient" {{selectedDefault proficiency "proficient"}}>Proficient</option>
+			<option value="expertise" {{selected proficiency "expertise"}}>Expertise</option>
+		</select>
+	</div>
+</div>

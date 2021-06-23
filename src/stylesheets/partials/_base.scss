@@ -1,0 +1,22 @@
+// Styles for basic HTML elements.
+
+html {
+	font-size: 16px;
+
+	@media screen and (max-width: 400px) {
+		font-size: 12px;
+	}
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: $app-body-bg;
+}
+
+a {
+	color: $theme-primary;
+
+	&:hover {
+		color: $theme-primary;
+	}
+}

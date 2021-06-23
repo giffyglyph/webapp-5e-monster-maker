@@ -1,0 +1,109 @@
+___
+> ## {{description.name}}
+> *{{fmtCapitalise (fmtMonsterDescription description.size description.type tags description.alignment)}}*
+> ___
+> - **Armor Class** {{#if ac.value}}{{ac.value}} {{/if}}{{#if ac.type}}({{ac.type}}){{/if}}
+> - **Hit Points** {{#if hp.average}}{{hp.average}} {{/if}}{{#if hp.roll}}({{hp.roll}}){{/if}}
+> - **Speed** {{{fmtMonsterSpeeds speeds}}}
+> ___
+> |STR|DEX|CON|INT|WIS|CHA|
+> |:---:|:---:|:---:|:---:|:---:|:---:|
+> |{{abilities.str.score}} ({{{fmtModifier abilities.str.modifier}}})|{{abilities.dex.score}} ({{{fmtModifier abilities.dex.modifier}}})|{{abilities.con.score}} ({{{fmtModifier abilities.con.modifier}}})|{{abilities.int.score}} ({{{fmtModifier abilities.int.modifier}}})|{{abilities.wis.score}} ({{{fmtModifier abilities.wis.modifier}}})|{{abilities.cha.score}} ({{{fmtModifier abilities.cha.modifier}}})|
+> ___
+{{#if savingThrows}}
+{{#if isQuickstart}}
+{{#if attack.isActive}}
+> - **Saves** {{fmtMonsterSavingThrowsQuickstartActiveGMBinder savingThrows}}
+{{/if}}
+{{#unless attack.isActive}}
+> - **Saving Throws** {{fmtMonsterSavingThrowsQuickstart savingThrows}}
+{{/unless}}
+{{/if}}
+{{#unless isQuickstart}}
+> - **Saving Throws** {{fmtMonsterSavingThrows savingThrows}}
+{{/unless}}
+{{/if}}
+{{#if skills}}
+> - **Skills** {{#each skills}}{{fmtCapitalise name}} {{fmtModifier modifier}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+{{#if vulnerabilities}}
+> - **Damage Vulnerabilities** {{#each vulnerabilities}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+{{#if resistances}}
+> - **Damage Resistances** {{#each resistances}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+{{#if immunities}}
+> - **Damage Immunities** {{#each immunities}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+{{#if conditions}}
+> - **Condition Immunities** {{#each conditions}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+{{#if senses}}
+> - **Senses** {{fmtMonsterSenses senses}}
+{{/if}}
+{{#if languages}}
+> - **Languages** {{#each languages}}{{fmtCapitalise this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+> - **Challenge** {{{challenge.rating}}} ({{challenge.xp}} XP)
+> ___
+{{#if attack.bonus}}
+> - **Attacks** {{#if attack.isActive}}DC {{attack.bonus}} vs AC{{#if attack.isActiveSmaller}} − 10{{/if}}{{/if}}{{#unless attack.isActive}}{{fmtModifier attack.bonus}} to hit{{/unless}}. _Hit:_ {{attack.damage}} damage
+> - **Attack DCs** Primary DC {{{dc.primary}}}, Secondary DC {{dc.secondary}}
+{{#if attack.isActive}}
+> - **Active Defence** {{#if attack.isActiveSmaller}}_(Smaller Variant)_ {{/if}} You don't roll to attack. Instead, your targets roll to defend.
+{{/if}}
+> ___
+{{/if}}
+{{#if traits}}
+{{#each traits}}
+> ***{{name}}.*** {{fmtGMBinderMarkdown detail}}
+>
+{{/each}}
+{{/if}}
+{{#if actions}}
+> ### Actions
+{{#each actions}}
+> ***{{name}}.*** {{fmtGMBinderMarkdown detail}}
+>
+{{/each}}
+{{/if}}
+{{#if reactions}}
+> ### Reactions
+{{#each reactions}}
+> ***{{name}}.*** {{fmtGMBinderMarkdown detail}}
+>
+{{/each}}
+{{/if}}
+{{#if paragonActions}}
+> ### Paragon Actions
+> You can take {{paragonActions}} paragon action(s), choosing to either move or perform one action. Only one paragon action can be used at a time and only at the end of another creature's turn. You regain spent paragon actions at the start of your turn.
+{{/if}}
+{{#if legendaryActions}}
+> ### Legendary Actions
+{{#if legendaryActionsPerRound}}
+> You can take {{legendaryActionsPerRound}} legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. You regain spent legendary actions at the start of your turn.
+>
+{{/if}}
+{{#each legendaryActions}}
+> ***{{name}}.*** {{fmtGMBinderMarkdown detail}}
+>
+{{/each}}
+{{/if}}
+{{#if lairActions}}
+> ### Lair Actions
+{{#if lairActionsInitiative}}
+> On initiative count {{lairActionsInitiative}} (losing initiative ties), you may take a lair action to cause one of the following effects. You can't use the same effect two rounds in a row.
+>
+{{/if}}
+{{#each lairActions}}
+> ***{{name}}.*** {{fmtGMBinderMarkdown detail}}
+>
+{{/each}}
+{{/if}}
+{{#if notes}}
+> ___
+{{#each notes}}
+> {{fmtGMBinderMarkdown this}}
+>
+{{/each}}
+{{/if}}

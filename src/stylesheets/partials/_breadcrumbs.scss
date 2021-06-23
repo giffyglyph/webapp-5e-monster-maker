@@ -1,0 +1,32 @@
+// Styles for the app breadcrumb trail.
+
+.breadcrumbs {
+	background: darken($app-body-bg, 7%);
+	margin-top: 0.5rem;
+	color: $card-grey;
+	font-size: 0.9em;
+
+	@media screen and (max-width: $app-width-tablet) {
+		display: none;
+	}
+
+	.app-container {
+		padding: 0.5rem 10px;
+		max-width: $app-width-desktop;
+		margin: 0 auto;
+	}
+
+	.divider,
+	.fas {
+		margin: 0 0.25rem;
+		color: $card-grey;
+	}
+
+	a {
+		color: inherit;
+
+		&:hover {
+			color: white;
+		}
+	}
+}

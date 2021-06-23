@@ -1,0 +1,186 @@
+// Styles for modals.
+
+.modal-backdrop.show {
+	opacity: 0.75;
+}
+
+.modal {
+
+	.modal-header {
+		background: $app-header-bg;
+		color: white;
+		border-bottom: 0;
+		border-radius: 0;
+		padding: $spacing $spacing-lg;
+		border-bottom: 4px solid $card-grey;
+
+		.card-icon {
+			background: $theme-primary;
+			padding: $spacing-sm $spacing $spacing-sm $spacing-sm;
+			border-radius: 0 1cm 1cm 0;
+			line-height: inherit;
+			margin: (-$spacing-sm) 0 (-$spacing-sm) (-$spacing-lg);
+
+			&::before {
+				min-width: 1.75rem;
+				text-align: center;
+				display: block;
+			}
+		}
+
+		.modal-title {
+			font-weight: bold;
+		}
+
+		.close {
+			opacity: 1;
+			color: $app-navigation-bg;
+			text-shadow: none;
+			margin: (-$spacing) (-$spacing-lg) (-$spacing) auto;
+			padding: 0.9rem 1.25rem;
+
+			span {
+				transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+			}
+
+			&:hover,
+			&:focus {
+				color: white;
+				outline: none;
+				opacity: 1;
+
+				span {
+					background: $theme-primary;
+				}
+			}
+
+			span {
+				background: $app-body-bg;
+				display: block;
+				border-radius: 1cm 0 0 1cm;
+				padding: 0 $spacing 0 $spacing;
+				margin-right: -$spacing-lg;
+			}
+		}
+	}
+
+	.modal-content {
+		border: 1px solid transparent;
+		background: none;
+		overflow: hidden;
+		border: 2px solid $theme-primary;
+		border-radius: 0.75rem;
+	}
+
+	.modal-body {
+		background: white;
+		padding: $spacing-lg;
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.modal-footer {
+		background: $card-grey;
+		border-top: 0;
+		padding: $spacing $spacing-lg;
+	}
+}
+
+#modal-settings {
+
+	.settings {
+		border: 4px solid $card-grey;
+		border-radius: 1rem;
+	}
+
+	.setting {
+
+		.btn {
+			margin-left: 0.5rem;
+		}
+
+		.content {
+			display: flex;
+			align-items: center;
+			padding: $spacing $spacing-lg;
+		}
+
+		.confirmation {
+			display: none;
+			color: $theme-primary;
+			padding: $spacing $spacing-lg;
+		}
+
+		.confirmed {
+			display: none;
+			color: green;
+			padding: $spacing $spacing-lg;
+
+			.fa-check-circle {
+				font-size: 2.5em;
+			}
+		}
+
+		select.form-control {
+			width: auto;
+			margin-left: 1em;
+			cursor: pointer;
+		}
+
+		&.confirm {
+
+			.content,
+			.confirmed {
+				display: none;
+			}
+
+			.confirmation {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		&.confirmed {
+
+			.content,
+			.confirmation {
+				display: none;
+			}
+
+			.confirmed {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		+ .setting {
+	    border-top: 2px solid $card-grey;
+		}
+
+		.description {
+			flex-grow: 1;
+
+			.title {
+				font-weight: bold;
+				margin: 0;
+				text-transform: uppercase;
+				font-size: 0.9rem;
+			}
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+#modal-gmbinder {
+
+	.modal-body {
+		white-space: pre-line;
+		font-family: monospace;
+		font-size: small;
+	}
+}

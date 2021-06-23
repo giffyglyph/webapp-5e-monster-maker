@@ -1,0 +1,26 @@
+<div class="repeatable-item">
+	{{> BlueprintFormRepeatingMenu}}
+	<div class="form-group">
+		<label>Damage</label>
+		<select class="form-control custom-toggle" data-name="type">
+			<option value="custom" {{selected type "custom"}}>Custom</option>
+			<option value="acid" {{selectedDefault type "acid"}}>Acid</option>
+			<option value="bludgeoning" {{selected type "bludgeoning"}}>Bludgeoning</option>
+			<option value="cold" {{selected type "cold"}}>Cold</option>
+			<option value="fire" {{selected type "fire"}}>Fire</option>
+			<option value="force" {{selected type "force"}}>Force</option>
+			<option value="lightning" {{selected type "lightning"}}>Lightning</option>
+			<option value="necrotic" {{selected type "necrotic"}}>Necrotic</option>
+			<option value="piercing" {{selected type "piercing"}}>Piercing</option>
+			<option value="poison" {{selected type "poison"}}>Poison</option>
+			<option value="psychic" {{selected type "psychic"}}>Psychic</option>
+			<option value="radiant" {{selected type "radiant"}}>Radiant</option>
+			<option value="slashing" {{selected type "slashing"}}>Slashing</option>
+			<option value="thunder" {{selected type "thunder"}}>Thunder</option>
+		</select>
+	</div>
+	<div class="form-group custom" {{{customToggle type}}}>
+		<label>Type</label>
+		<input type="text" class="form-control" data-name="custom" {{{setValue custom}}}>
+	</div>
+</div>

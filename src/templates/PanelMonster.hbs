@@ -1,0 +1,167 @@
+<div class="card panel vault edit">
+	<div class="card-header">
+		<span class="card-icon fas fa-dragon"></span> Vault <span class="divider">»</span> <span class="subtitle">edit monster #{{id}}</span>
+	</div>
+	<div class="card-body">
+		<div class="monster-preview"></div>
+		<div class="blueprint-form"></div>
+	</div>
+	<div class="card-footer text-right">
+		<div>
+			<a class="btn btn-secondary" href="#/vault">
+				<span class="fas fa-arrow-left"></span> Vault
+			</a>
+		</div>
+		<div>
+			<div class="dropdown dropdown-options dropup">
+				<input type="file" accept=".json" id="monster-import-file"/>
+				<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+					<span class="fas fa-cog"></span>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right">
+					<button type="button" class="dropdown-item btn-reset" data-toggle="modal" data-target="#modal-delete">
+						<span class="fas fa-trash"></span>Delete
+					</button>
+					<button type="button" class="dropdown-item btn-save-as-new">
+						<span class="fas fa-copy"></span>Create a Copy
+					</button>
+					<div class="dropdown-divider"></div>
+					<button type="button" class="dropdown-item btn-export-to-ii">
+						<span class="fas fa-file-export"></span>Export as Improved Initiative .json
+					</button>
+					<button type="button" class="dropdown-item btn-export-to-ii-clipboard">
+						<span class="fas fa-clipboard"></span>Copy Improved Initiative to Clipboard
+					</button>
+					<div class="dropdown-divider"></div>
+					<button type="button" class="dropdown-item btn-show-gmbinder">
+						<span class="fas fa-book-open"></span>Show in GMBinder Format
+					</button>
+					<div class="dropdown-divider"></div>
+					<button type="button" class="dropdown-item btn-export-to-json">
+						<span class="fas fa-file-export"></span>Save to .json
+					</button>
+					<button type="button" class="dropdown-item btn-import-from-json">
+						<span class="fas fa-file-import"></span>Load from .json
+					</button>
+				</div>
+			</div>
+			<button class="btn btn-primary btn-save">
+				 <span class="fas fa-save"></span> Save Changes
+			</button>
+		</div>
+	</div>
+	<div id="modal-delete" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-trash"></span> Delete Monster #{{id}}
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Are you sure you want to delete this monster?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">
+						<span class="fas fa-times"></span> No
+					</button>
+					<button type="button" class="btn btn-primary btn-confirm" data-dismiss="modal">
+						<span class="fas fa-check"></span> Yes
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-updated" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-save"></span> Changes Saved
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Your changes to monster #{{id}} have been saved.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-new-monster" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-save"></span> Created Monster #{{id}}
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>You added monster #{{id}} to the vault.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btn-add-another" data-dismiss="modal">
+						<span class="fas fa-plus"></span> Add Another
+					</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-import-monster-failure" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-file-import"></span> No Monster Found
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>That file doesn't contain a valid monster.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal-gmbinder" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="card-icon fas fa-book-open"></span> GMBinder
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<span class="fas fa-check"></span> Ok
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

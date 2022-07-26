@@ -1,6 +1,7 @@
 'use strict';
 
 let gulp = require('gulp');
+let connect = require('gulp-connect')
 let path = require('path');
 let using = require('gulp-using');
 let app = require('./package.json');
@@ -117,3 +118,12 @@ gulp.task('build', gulp.series('purge', gulp.parallel('build-images', 'build-scr
 	return cb();
 }));
 gulp.task('build-and-watch', gulp.series('build', 'watch'));
+
+gulp.task('webserver', function() {
+	connect.server({
+		livereload: true,
+		root: ['.', 'dist']
+	});
+});
+
+gulp.task('default', gulp.series('build', 'webserver'));
